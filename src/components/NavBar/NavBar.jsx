@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} container`}>
         <a href="#" className={styles.linkTitle}>
           <span>{`>felipe`}</span>
           <span className={styles.linkSubtitle}>{`.dev_`}</span>

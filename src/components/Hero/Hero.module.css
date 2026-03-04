@@ -1,0 +1,162 @@
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient-hero);
+  padding-top: 80px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.containerContent {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.introSpan {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.textSpan {
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 800;
+  color: var(--accent);
+  padding-bottom: 16px;
+}
+
+.intro p {
+  max-width: 600px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.buttonPrimary {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.buttonPrimary:hover {
+  background: #7dd3fc;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+  transform: translateY(-1px);
+}
+
+.buttonOutline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.buttonOutline:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  gap: 16px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.social a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.social svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profileImg {
+  margin-top: 40px;
+}
+
+.profileImg img {
+  width: 100%;
+  max-width: clamp(300px, 50vw, 380px);
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  border: 1px solid var(--accent-dim);
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1120px;
+  }
+
+  .containerContent {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
