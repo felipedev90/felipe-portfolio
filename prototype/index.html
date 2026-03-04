@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felipe Augusto | Desenvolvedor Front-End</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #0a0e17;
+        --bg-secondary: #111827;
+        --bg-card: #151d2e;
+        --bg-card-hover: #1a2540;
+        --accent: #38bdf8;
+        --accent-dim: rgba(56, 189, 248, 0.15);
+        --accent-glow: rgba(56, 189, 248, 0.3);
+        --text-primary: #e8edf5;
+        --text-secondary: #8b97b0;
+        --text-muted: #5a6577;
+        --border: rgba(56, 189, 248, 0.12);
+        --border-strong: rgba(56, 189, 248, 0.25);
+        --gradient-hero: linear-gradient(
+          135deg,
+          rgba(56, 189, 248, 0.08) 0%,
+          rgba(14, 165, 233, 0.03) 50%,
+          transparent 100%
+        );
+        --radius: 12px;
+        --radius-sm: 8px;
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--border);
+        --shadow-glow: 0 0 30px rgba(56, 189, 248, 0.1);
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ============ GLOBAL ============ */
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 48px;
+        line-height: 1.2;
+      }
+
+      /* ============ NAVBAR ============ */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 0 24px;
+        background: rgba(10, 14, 23, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .nav-logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+
+      .nav-logo span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--transition);
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--text-primary);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--text-secondary);
+        border-radius: 2px;
+        transition: var(--transition);
+      }
+
+      /* ============ HERO ============ */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 64px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-hero);
+        pointer-events: none;
+      }
+
+      /* Subtle grid background */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(56, 189, 248, 0.06) 1px,
+          transparent 0
+        );
+        background-size: 48px 48px;
+        pointer-events: none;
+      }
+
+      /* Glow orbs */
+      .hero-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      .hero-glow--1 {
+        width: 500px;
+        height: 500px;
+        background: rgba(56, 189, 248, 0.12);
+        top: -100px;
+        right: -100px;
+      }
+
+      .hero-glow--2 {
+        width: 300px;
+        height: 300px;
+        background: rgba(14, 165, 233, 0.08);
+        bottom: 10%;
+        left: -50px;
+      }
+
+      .hero .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content {
+        max-width: 540px;
+      }
+
+      .hero-greeting {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.875rem;
+        color: var(--accent);
+        margin-bottom: 16px;
+        letter-spacing: 0.05em;
+      }
+
+      .hero-title {
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-highlight {
+        background: linear-gradient(135deg, var(--accent), #7dd3fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.15rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: var(--radius-sm);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all var(--transition);
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      .btn-primary:hover {
+        background: #7dd3fc;
+        box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border-strong);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+        transform: translateY(-1px);
+      }
+
+      .hero-photo-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-photo {
+        width: 320px;
+        height: 380px;
+        border-radius: 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 50%,
+          rgba(10, 14, 23, 0.8) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-photo-placeholder {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hero-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-family: "JetBrains Mono", monospace;
+        transition: all var(--transition);
+      }
+
+      .social-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-dim);
+      }
+
+      /* ============ SOBRE MIM ============ */
+      .about {
+        background: var(--bg-secondary);
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: start;
+      }
+
+      .about-text p {
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* ============ PROJETOS (GRID) ============ */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        border-color: var(--border-strong);
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-4px);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary) 0%,
+          var(--bg-card) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(56, 189, 248, 0.04) 1px,
+          transparent 0
+        );
+        background-size: 24px 24px;
+      }
+
+      .project-image-placeholder {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        z-index: 1;
+      }
+
+      .project-body {
+        padding: 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-name {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 100px;
+        background: var(--accent-dim);
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .project-desc {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        flex: 1;
+        margin-bottom: 16px;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 8px;
+        margin-top: auto;
+      }
+
+      .project-link {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        padding: 8px 16px;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        transition: all var(--transition);
+        font-weight: 500;
+      }
+
+      .project-link--demo {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+
+      .project-link--demo:hover {
+        background: #7dd3fc;
+      }
+
+      .project-link--repo {
+        border: 1px solid var(--border-strong);
+        color: var(--text-secondary);
+      }
+
+      .project-link--repo:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* ============ HABILIDADES (POR CATEGORIA) ============ */
+      .skills {
+        background: var(--bg-secondary);
+      }
+
+      .skills-categories {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .skill-category {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+      }
+
+      .skill-category-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: rgba(56, 189, 248, 0.06);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        transition: all var(--transition);
+      }
+
+      .skill-item:hover {
+        border-color: var(--accent);
+        color: var(--text-primary);
+        background: var(--accent-dim);
+      }
+
+      .skill-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        background: var(--accent-dim);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        color: var(--accent);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* ============ CONTATO ============ */
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .contact-info h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .contact-info p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+
+      .contact-channels {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .contact-channel {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all var(--transition);
+      }
+
+      .contact-channel:hover {
+        border-color: var(--accent);
+        color: var(--text-primary);
+      }
+
+      .contact-channel-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: var(--accent-dim);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      .contact-form {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+      }
+
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.9rem;
+        transition: border-color var(--transition);
+        outline: none;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-dim);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-submit {
+        width: 100%;
+        padding: 14px;
+        margin-top: 8px;
+      }
+
+      /* ============ FOOTER ============ */
+      .footer {
+        padding: 32px 0;
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .footer p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* ============ ANIMATIONS ============ */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-content {
+        animation: fadeInUp 0.8s ease-out;
+      }
+      .hero-photo-wrapper {
+        animation: fadeInUp 0.8s ease-out 0.15s both;
+      }
+
+      /* ============ RESPONSIVE: TABLET ============ */
+      @media (max-width: 900px) {
+        .hero .container {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .hero-social {
+          justify-content: center;
+        }
+
+        .hero-photo {
+          width: 260px;
+          height: 320px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .skills-categories {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links.active {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 64px;
+          left: 0;
+          right: 0;
+          background: rgba(10, 14, 23, 0.95);
+          backdrop-filter: blur(20px);
+          padding: 24px;
+          gap: 20px;
+          border-bottom: 1px solid var(--border);
+        }
+      }
+
+      /* ============ RESPONSIVE: MOBILE ============ */
+      @media (max-width: 600px) {
+        section {
+          padding: 64px 0;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+          margin-bottom: 32px;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-photo {
+          width: 220px;
+          height: 280px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-categories {
+          grid-template-columns: 1fr;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="nav-logo">felipe<span>.dev</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">Sobre Mim</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-glow hero-glow--1"></div>
+      <div class="hero-glow hero-glow--2"></div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-greeting">// Olá, eu sou</p>
+          <h1 class="hero-title">
+            Felipe Augusto<br /><span class="hero-highlight"
+              >Desenvolvedor Front-End</span
+            >
+          </h1>
+          <p class="hero-subtitle">
+            Construindo experiências digitais modernas com React, Next.js e
+            TypeScript. Foco em performance, acessibilidade e código limpo.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+              </svg>
+              Ver Projetos
+            </a>
+            <a href="#" class="btn btn-outline">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Baixar CV
+            </a>
+          </div>
+          <div class="hero-social">
+            <a href="#" class="social-link" title="LinkedIn">in</a>
+            <a href="#" class="social-link" title="GitHub">gh</a>
+            <a href="#" class="social-link" title="Email">@</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrapper">
+          <div class="hero-photo">
+            <span class="hero-photo-placeholder"
+              >Sua foto aqui<br />(~320×380)</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section class="about" id="about">
+      <div class="container">
+        <p class="section-label">// Sobre Mim</p>
+        <h2 class="section-title">Quem sou eu</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Desenvolvedor Front-End em transição de carreira, vindo de mais de
+              10 anos na indústria automotiva, onde atuei com controle de
+              qualidade, processos e melhoria contínua na Thyssenkrupp.
+            </p>
+            <p>
+              Essa bagagem me deu uma mentalidade analítica e atenção a detalhes
+              que aplico diretamente no desenvolvimento: código limpo, testes
+              automatizados, CI/CD e foco em performance.
+            </p>
+            <p>
+              Hoje meu foco é React, Next.js e TypeScript — construindo
+              interfaces responsivas, acessíveis e otimizadas. Apaixonado por
+              aprender e evoluir constantemente.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Projetos</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Anos na indústria</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">76%</span>
+              <span class="stat-label">Cobertura de testes</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">98</span>
+              <span class="stat-label">Lighthouse perf.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS (GRID) -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <p class="section-label">// Projetos</p>
+        <h2 class="section-title">Meus Projetos</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <span class="project-image-placeholder"
+                >Screenshot do Expense Tracker</span
+              >
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Expense Tracker</h3>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vitest</span>
+                <span class="tag">CI/CD</span>
+              </div>
+              <p class="project-desc">
+                Gerenciador de despesas com filtros por categoria e período. 16
+                testes automatizados com 76% de cobertura e pipeline CI/CD
+                completo via GitHub Actions.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link project-link--demo">Demo</a>
+                <a href="#" class="project-link project-link--repo">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <span class="project-image-placeholder"
+                >Screenshot do Mini E-commerce</span
+              >
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">Mini E-commerce</h3>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">Context API</span>
+                <span class="tag">Express</span>
+              </div>
+              <p class="project-desc">
+                E-commerce com carrinho via Context API e API REST própria.
+                Otimização Lighthouse de 92→98 em performance com gzip, WebP e
+                code splitting.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link project-link--demo">Demo</a>
+                <a href="#" class="project-link project-link--repo">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <span class="project-image-placeholder"
+                >Screenshot do NextBlog</span
+              >
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">NextBlog</h3>
+              <div class="project-tags">
+                <span class="tag">Next.js 15</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">SSG</span>
+                <span class="tag">SEO</span>
+              </div>
+              <p class="project-desc">
+                Blog com SSG via generateStaticParams, SEO dinâmico com
+                generateMetadata por página e data fetching em Server
+                Components.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link project-link--demo">Demo</a>
+                <a href="#" class="project-link project-link--repo">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <span class="project-image-placeholder"
+                >Screenshot do MyBooks</span
+              >
+            </div>
+            <div class="project-body">
+              <h3 class="project-name">MyBooks</h3>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">REST API</span>
+              </div>
+              <p class="project-desc">
+                Catálogo de livros com operações GET, POST e DELETE em API real.
+                Tipagem robusta com TypeScript e camada de serviço isolada.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link project-link--demo">Demo</a>
+                <a href="#" class="project-link project-link--repo">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES (POR CATEGORIA) -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <p class="section-label">// Habilidades</p>
+        <h2 class="section-title">Minhas Habilidades</h2>
+        <div class="skills-categories">
+          <div class="skill-category">
+            <h3 class="skill-category-title">Frontend</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> HTML5
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> CSS3
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> SASS
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Tailwind
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Bootstrap
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-category-title">JavaScript & Frameworks</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> JavaScript ES6+
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> TypeScript
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> React
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Next.js 15
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Context API
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-category-title">Ferramentas & Métodos</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Git & GitHub
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> GitHub Actions
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Vitest
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Testing Library
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Figma
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> CI/CD
+              </div>
+              <div class="skill-item">
+                <span class="skill-icon">◇</span> Scrum
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <p class="section-label">// Contato</p>
+        <h2 class="section-title">Vamos Conversar!</h2>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h3>Entre em contato</h3>
+            <p>
+              Estou disponível para oportunidades como Desenvolvedor Front-End
+              Júnior. Se tiver um projeto ou vaga que combine com meu perfil,
+              será um prazer conversar!
+            </p>
+            <div class="contact-channels">
+              <a href="#" class="contact-channel">
+                <span class="contact-channel-icon">@</span>
+                augusto.felipedev@gmail.com
+              </a>
+              <a href="#" class="contact-channel">
+                <span class="contact-channel-icon">in</span>
+                linkedin.com/in/felipesilva90
+              </a>
+              <a href="#" class="contact-channel">
+                <span class="contact-channel-icon">gh</span>
+                github.com/felipedev90
+              </a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <div class="form-group">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-input" placeholder="Seu nome" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-input"
+                placeholder="seu@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mensagem</label>
+              <textarea
+                class="form-textarea"
+                placeholder="Sua mensagem..."
+              ></textarea>
+            </div>
+            <button class="btn btn-primary form-submit">
+              Enviar Mensagem
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          © 2025 Felipe Augusto · Desenvolvido com <a href="#">React</a> + CSS
+          Modules · Deploy na <a href="#">Vercel</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

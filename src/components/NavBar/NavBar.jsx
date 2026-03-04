@@ -8,27 +8,38 @@ export default function Navbar() {
   const handleNavClick = () => setIsOpen(false);
 
   return (
-    <header>
-      <nav>
-        <a href="#">{`>felipe.dev_`}</a>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <a href="#" className={styles.linkTitle}>
+          <span>{`>felipe`}</span>
+          <span className={styles.linkSubtitle}>{`.dev_`}</span>
+        </a>
         <ul className={isOpen ? styles.menuOpen : styles.menu}>
-          <li>
-            <a href="#sobre" onClick={handleNavClick}>
+          <li className={styles.list}>
+            <a href="#sobre" onClick={handleNavClick} className={styles.link}>
               Sobre mim
             </a>
           </li>
-          <li>
-            <a href="#projetos" onClick={handleNavClick}>
+          <li className={styles.list}>
+            <a
+              href="#projetos"
+              onClick={handleNavClick}
+              className={styles.link}
+            >
               Projetos
             </a>
           </li>
-          <li>
-            <a href="#habilidades" onClick={handleNavClick}>
+          <li className={styles.list}>
+            <a
+              href="#habilidades"
+              onClick={handleNavClick}
+              className={styles.link}
+            >
               Habilidades
             </a>
           </li>
-          <li>
-            <a href="#contato" onClick={handleNavClick}>
+          <li className={styles.list}>
+            <a href="#contato" onClick={handleNavClick} className={styles.link}>
               Contato
             </a>
           </li>
@@ -36,6 +47,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+          className={styles.menuButton}
         >
           {isOpen ? <X /> : <Menu />}
         </button>
