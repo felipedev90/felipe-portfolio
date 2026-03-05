@@ -7,6 +7,7 @@
   align-items: center;
   background: var(--gradient-hero);
   padding-top: 80px;
+  padding-bottom: 40px;
 }
 
 .container {
@@ -33,7 +34,7 @@
   justify-content: flex-start;
 }
 
-.introSpan {
+.sectionLabel {
   font-family: "JetBrains Mono", monospace;
   color: var(--accent);
   font-size: 14px;

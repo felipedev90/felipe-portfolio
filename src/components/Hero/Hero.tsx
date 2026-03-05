@@ -4,10 +4,10 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.container} container fade-in-up`}>
         <div className={styles.containerContent}>
           <div className={styles.intro}>
-            <span className={styles.introSpan}>// Olá, eu sou</span>
+            <span className={styles.sectionLabel}>// Olá, eu sou</span>
             <h1 className={styles.title}>Felipe Augusto</h1>
             <span className={styles.textSpan}>
               Desenvolvedor <br /> Front-end
@@ -54,7 +54,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className={styles.profileImg}>
+        <div className={`${styles.profileImg} fade-in-up-photo`}>
           <img src="/foto-felipe.webp" alt="Foto de perfil de Felipe Augusto" />
         </div>
       </div>

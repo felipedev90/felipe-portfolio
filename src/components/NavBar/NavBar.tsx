@@ -16,30 +16,22 @@ export default function Navbar() {
         </a>
         <ul className={isOpen ? styles.menuOpen : styles.menu}>
           <li className={styles.list}>
-            <a href="#sobre" onClick={handleNavClick} className={styles.link}>
+            <a href="#about" onClick={handleNavClick} className={styles.link}>
               Sobre mim
             </a>
           </li>
           <li className={styles.list}>
-            <a
-              href="#projetos"
-              onClick={handleNavClick}
-              className={styles.link}
-            >
+            <a href="#" onClick={handleNavClick} className={styles.link}>
               Projetos
             </a>
           </li>
           <li className={styles.list}>
-            <a
-              href="#habilidades"
-              onClick={handleNavClick}
-              className={styles.link}
-            >
+            <a href="#" onClick={handleNavClick} className={styles.link}>
               Habilidades
             </a>
           </li>
           <li className={styles.list}>
-            <a href="#contato" onClick={handleNavClick} className={styles.link}>
+            <a href="#" onClick={handleNavClick} className={styles.link}>
               Contato
             </a>
           </li>
