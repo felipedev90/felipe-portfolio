@@ -21,12 +21,16 @@ export default function Navbar() {
             </a>
           </li>
           <li className={styles.list}>
-            <a href="#" onClick={handleNavClick} className={styles.link}>
+            <a
+              href="#projects"
+              onClick={handleNavClick}
+              className={styles.link}
+            >
               Projetos
             </a>
           </li>
           <li className={styles.list}>
-            <a href="#" onClick={handleNavClick} className={styles.link}>
+            <a href="#skills" onClick={handleNavClick} className={styles.link}>
               Habilidades
             </a>
           </li>

@@ -2,6 +2,7 @@ import Navbar from "./components/NavBar/NavBar.tsx";
 import Hero from "./components/Hero/Hero.tsx";
 import About from "./components/About/About.tsx";
 import Projects from "./components/Projects/Projects.tsx";
+import Skills from "./components/Skills/Skills.tsx";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Hero />
       <About />
       <Projects />
+      <Skills />
     </div>
   );
 }
