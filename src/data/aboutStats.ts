@@ -8,7 +8,7 @@ interface Stat {
 export const aboutStats: Stat[] = [
   {
     id: 1,
-    valor: "4+",
+    valor: "10+",
     label: "Projetos",
     descricao: "publicados",
   },

@@ -19,7 +19,7 @@
 }
 
 .title {
-  font-size: clamp(28px, 6vw, 56px);
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.2;
@@ -56,6 +56,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -70,7 +71,7 @@
   color: var(--accent);
   display: block;
   line-height: 1;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .statLabel,
@@ -79,9 +80,6 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-
-  padding: 2px 0;
-  margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
