@@ -35,7 +35,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className={styles.list}>
-            <a href="#" onClick={handleNavClick} className={styles.link}>
+            <a href="#contact" onClick={handleNavClick} className={styles.link}>
               Contato
             </a>
           </li>

@@ -7,6 +7,7 @@ export default function About() {
       <div className={`${styles.container} container`}>
         <p className={styles.sectionLabel}>// Sobre mim</p>
         <h2 className={styles.title}>Quem sou eu</h2>
+
         <div className={styles.aboutContainer}>
           <div className={styles.aboutText}>
             <p>
@@ -30,6 +31,7 @@ export default function About() {
             </p>
           </div>
         </div>
+
         <div className={styles.statContainer}>
           {aboutStats.map((stat) => (
             <div key={stat.id} className={styles.statCard}>

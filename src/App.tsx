@@ -1,8 +1,9 @@
-import Navbar from "./components/NavBar/NavBar.tsx";
-import Hero from "./components/Hero/Hero.tsx";
-import About from "./components/About/About.tsx";
-import Projects from "./components/Projects/Projects.tsx";
-import Skills from "./components/Skills/Skills.tsx";
+import Navbar from "./components/NavBar/NavBar";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
+import Skills from "./components/Skills/Skills";
+import Contact from "./components/Contact/Contact";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <About />
       <Projects />
       <Skills />
+      <Contact />
     </div>
   );
 }
