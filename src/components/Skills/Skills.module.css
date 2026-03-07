@@ -1,29 +1,6 @@
 .skills {
   background: var(--bg-secondary);
-  padding: 60px 10px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.sectionLabel {
-  font-family: "JetBrains Mono", monospace;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 16px 0;
-}
-
-.sectionTitle {
-  font-size: clamp(28px, 6vw, 48px);
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.2;
-  padding: 32px 0;
+  padding: 30px 10px;
 }
 
 .skillsContainer {

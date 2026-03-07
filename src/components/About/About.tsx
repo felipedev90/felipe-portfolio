@@ -5,8 +5,8 @@ export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={`${styles.container} container`}>
-        <p className={styles.sectionLabel}>// Sobre mim</p>
-        <h2 className={styles.title}>Quem sou eu</h2>
+        <p className="sectionLabel">// Sobre mim</p>
+        <h2 className="title">Quem sou eu</h2>
 
         <div className={styles.aboutContainer}>
           <div className={styles.aboutText}>

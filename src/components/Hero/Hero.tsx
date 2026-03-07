@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={`${styles.container} container fade-in-up`}>
         <div className={styles.containerContent}>
           <div className={styles.intro}>
-            <span className={styles.sectionLabel}>// Olá, eu sou</span>
+            <span className={styles.heroLabel}>// Olá, eu sou</span>
             <h1 className={styles.title}>Felipe Augusto</h1>
             <span className={styles.textSpan}>
               Desenvolvedor <br /> Front-end
@@ -18,16 +18,13 @@ export default function Hero() {
             </p>
           </div>
           <div className={styles.buttons}>
-            <a
-              href="#projetos"
-              className={`${styles.button} ${styles.buttonPrimary}`}
-            >
+            <a href="#projetos" className="button buttonPrimary">
               <FolderCode /> Ver Projetos
             </a>
             <a
               href="/cv-felipe-augusto.pdf"
               download
-              className={`${styles.button} ${styles.buttonOutline}`}
+              className="button buttonOutline"
             >
               <Download /> Baixar CV
             </a>
