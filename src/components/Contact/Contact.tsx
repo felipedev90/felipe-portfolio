@@ -28,9 +28,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className={styles.contact}>
-      <div className={`${styles.container} container`}>
-        <span className={styles.sectionLabel}>// Contato</span>
-        <h2 className={styles.title}>Vamos conversar!</h2>
+      <div className="container containerSection">
+        <span className="sectionLabel">// Contato</span>
+        <h2 className="title">Vamos conversar!</h2>
 
         <div className={styles.containerTextForm}>
           <div className={styles.contactText}>
@@ -129,10 +129,7 @@ export default function Contact() {
                   </span>
                 )}
               </div>
-              <button
-                type="submit"
-                className={`${styles.button} ${styles.buttonPrimary}`}
-              >
+              <button type="submit" className={styles.btnSubmit}>
                 Enviar Mensagem
                 <Send size={16} />
               </button>

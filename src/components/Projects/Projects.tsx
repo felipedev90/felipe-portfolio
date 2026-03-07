@@ -4,9 +4,9 @@ import styles from "./Projects.module.css";
 export default function Projects() {
   return (
     <section id="projects" className={styles.projects}>
-      <div className={`${styles.container} container`}>
-        <p className={styles.sectionLabel}>// Projetos</p>
-        <h2 className={styles.title}>Meus projetos</h2>
+      <div className="container containerSection">
+        <p className="sectionLabel">// Projetos</p>
+        <h2 className="title">Meus projetos</h2>
         <div className={styles.projectsContainer}>
           {projectsData.map((project) => (
             <div key={project.id} className={styles.projectCard}>
@@ -31,7 +31,7 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.button} ${styles.buttonPrimary}`}
+                    className="button buttonPrimary"
                   >
                     Demo
                   </a>
@@ -39,7 +39,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${styles.button} ${styles.buttonOutline}`}
+                    className="button buttonOutline"
                   >
                     GitHub
                   </a>

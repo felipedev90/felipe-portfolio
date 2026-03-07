@@ -4,9 +4,9 @@ import { skillsData } from "../../data/skillsData";
 export default function Skills() {
   return (
     <section id="skills" className={styles.skills}>
-      <div className={`${styles.container} container`}>
-        <p className={styles.sectionLabel}>// Habilidades</p>
-        <h2 className={styles.sectionTitle}>Minhas Habilidades</h2>
+      <div className="container containerSection">
+        <p className="sectionLabel">// Habilidades</p>
+        <h2 className="title">Minhas Habilidades</h2>
         <div className={styles.skillsContainer}>
           {skillsData.map((skill) => (
             <div key={skill.id} className={styles.skillCard}>
