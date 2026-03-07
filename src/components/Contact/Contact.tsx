@@ -9,6 +9,7 @@ import type { ContactFormData } from "../../schemas/contactSchema";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   const {
     register,
@@ -19,11 +20,28 @@ export default function Contact() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log(data);
-    reset();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          access_key: "2a226cc5-4769-41cd-8d02-3f0688bb7fdd",
+          ...data,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        reset();
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar", error);
+      setError(true);
+      setTimeout(() => setError(false), 4000);
+    }
   };
 
   return (
@@ -136,6 +154,11 @@ export default function Contact() {
               {submitted && (
                 <p className={styles.formSuccess}>
                   Mensagem enviada com sucesso!
+                </p>
+              )}
+              {error && (
+                <p className={styles.formError}>
+                  Ocorreu um erro ao enviar. Tente novamente.
                 </p>
               )}
             </form>
