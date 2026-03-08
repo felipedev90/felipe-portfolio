@@ -11,9 +11,9 @@ export default function About() {
         <div className={styles.aboutContainer}>
           <div className={styles.aboutText}>
             <p>
-              Sou Desenvolvedor Front-End em transição de carreira, após mais de
-              <strong> 10 anos de experiência na indústria</strong>, atuando com
-              controle de qualidade, análise de processos e melhoria contínua.
+              Desenvolvedor Front-End com mais de
+              <strong> 10 anos de experiência profissional </strong>em
+              processos, qualidade e melhoria contínua na indústria automotiva.
             </p>
             <p>
               Essa trajetória desenvolveu uma{" "}

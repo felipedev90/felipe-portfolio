@@ -19,7 +19,7 @@ https://felipe-silva90-portfolio.vercel.app/
 
 ## Preview do projeto
 
-![Preview do portfólio](/portfolio_print.webp)
+![Preview do portfólio](./public/portfolio_print.webp)
 
 ---
 

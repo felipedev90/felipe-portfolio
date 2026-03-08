@@ -1,6 +1,6 @@
 .about {
   background: var(--bg-secondary);
-  padding: 30px 10px;
+  padding: 60px 10px;
 }
 
 h2 {
@@ -71,6 +71,10 @@ h2 {
     row-gap: 16px;
     column-gap: 64px;
     padding: 64px 0;
+  }
+
+  .about {
+    padding: 20px 10px;
   }
 
   .statContainer {
