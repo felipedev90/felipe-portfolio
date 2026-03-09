@@ -14,6 +14,7 @@ export default function Projects() {
                 src={project.image}
                 alt={`Screenshot do projeto ${project.titulo}`}
                 className={styles.projectImage}
+                loading="lazy"
               />
 
               <div className={styles.projectContent}>

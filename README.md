@@ -105,6 +105,19 @@ Este projeto foi criado com o objetivo de:
 
 ---
 
+## Lighthouse
+
+![Lighthouse Score](./lighthouse_score.webp)
+
+| Métrica        | Score |
+| -------------- | ----- |
+| Performance    | 91    |
+| Accessibility  | 93    |
+| Best Practices | 100   |
+| SEO            | 92    |
+
+---
+
 ## Autor
 
 **Felipe Augusto**
