@@ -1,3 +1,6 @@
+// Componente de projetos, onde são listados os projetos desenvolvidos pelo portfólio. Cada projeto é exibido em um card com imagem, título, descrição, tags e links para demo e código-fonte.
+// O componente utiliza os dados dos projetos importados de um arquivo de dados e é estilizado com CSS Modules para garantir um design moderno e responsivo.
+
 import { projectsData } from "../../data/projectsData";
 import styles from "./Projects.module.css";
 
@@ -8,6 +11,7 @@ export default function Projects() {
         <p className="sectionLabel">// Projetos</p>
         <h2 className="title">Meus projetos</h2>
         <div className={styles.projectsContainer}>
+          {/* Mapeia os dados dos projetos e cria um card para cada projeto */}
           {projectsData.map((project) => (
             <div key={project.id} className={styles.projectCard}>
               <img
@@ -20,6 +24,7 @@ export default function Projects() {
               <div className={styles.projectContent}>
                 <h3 className={styles.projectTitle}>{project.titulo}</h3>
                 <div className={styles.projectTagsContainer}>
+                  {/* Mapeia as tags do projeto e cria um elemento para cada tag */}
                   {project.tags.map((tag, index) => (
                     <span key={index} className={styles.projectTag}>
                       {tag}

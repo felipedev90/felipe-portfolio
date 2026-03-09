@@ -1,3 +1,5 @@
+// Arquivo de entrada do React, onde renderizamos o componente principal App
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";

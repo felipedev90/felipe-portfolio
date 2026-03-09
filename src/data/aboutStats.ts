@@ -1,3 +1,4 @@
+// Tipagem para as estatísticas da seção "Sobre Mim"
 interface Stat {
   id: number;
   valor: string;
@@ -5,6 +6,7 @@ interface Stat {
   descricao: string;
 }
 
+// Dados das estatísticas para a seção "Sobre Mim"
 export const aboutStats: Stat[] = [
   {
     id: 1,

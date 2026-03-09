@@ -1,3 +1,5 @@
+// Componente de apresentação do portfólio, destacando o nome, profissão, descrição e links para projetos, CV e redes sociais.
+
 import { FolderCode, Download, Linkedin, Github, Mail } from "lucide-react";
 import styles from "./Hero.module.css";
 

@@ -1,3 +1,10 @@
+// Este componente representa a seção "Sobre mim" do portfólio, onde o desenvolvedor compartilha sua trajetória profissional, habilidades e estatísticas relevantes.
+
+// Ele é estruturado em três partes principais:
+// 1. Introdução: Um breve parágrafo que destaca a experiência do desenvolvedor, sua mentalidade analítica e as tecnologias que utiliza.
+// 2. Estatísticas: Uma seção que exibe estatísticas relevantes sobre o desenvolvedor, como anos de experiência, projetos concluídos, etc., utilizando dados importados de um arquivo externo.
+// 3. Estilização: O componente é estilizado usando CSS Modules para garantir que os estilos sejam aplicados de forma isolada e organizada.
+
 import styles from "./About.module.css";
 import { aboutStats } from "../../data/aboutStats";
 
@@ -32,6 +39,8 @@ export default function About() {
           </div>
         </div>
 
+        {/* Seção de estatísticas, onde os dados são mapeados a partir do array importado "aboutStats" 
+        e exibidos em cards estilizados.*/}
         <div className={styles.statContainer}>
           {aboutStats.map((stat) => (
             <div key={stat.id} className={styles.statCard}>

@@ -1,9 +1,11 @@
+// Tipagem para os dados de habilidades
 interface SkillData {
   id: number;
   titulo: string;
   tags: { name: string; icon: string }[];
 }
 
+// Dados de habilidades organizados por categorias
 export const skillsData: SkillData[] = [
   {
     id: 1,

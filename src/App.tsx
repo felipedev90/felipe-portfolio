@@ -1,3 +1,5 @@
+// Arquivo principal do React, onde importamos os componentes e os renderizamos na tela
+
 import Navbar from "./components/NavBar/NavBar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";

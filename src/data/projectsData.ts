@@ -1,3 +1,4 @@
+// Tipagem para os projetos do portfólio
 interface Project {
   id: number;
   titulo: string;
@@ -8,6 +9,7 @@ interface Project {
   image: string;
 }
 
+// Array de projetos com informações detalhadas para cada um
 export const projectsData: Project[] = [
   {
     id: 1,
