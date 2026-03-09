@@ -107,7 +107,7 @@ Este projeto foi criado com o objetivo de:
 
 ## Lighthouse
 
-![Lighthouse Score](./lighthouse_score.webp)
+![Lighthouse Score](./public/lighthouse_score.webp)
 
 | Métrica        | Score |
 | -------------- | ----- |
