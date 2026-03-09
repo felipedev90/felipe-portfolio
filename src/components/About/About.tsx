@@ -18,23 +18,28 @@ export default function About() {
         <div className={styles.aboutContainer}>
           <div className={styles.aboutText}>
             <p>
-              Desenvolvedor Front-End com mais de
-              <strong> 10 anos de experiência profissional </strong>em
-              processos, qualidade e melhoria contínua na indústria automotiva.
+              Sou Desenvolvedor Front-End Júnior focado na construção de
+              interfaces modernas, acessíveis e performáticas.
             </p>
             <p>
-              Essa trajetória desenvolveu uma{" "}
-              <strong>mentalidade analítica</strong> e forte atenção a detalhes,
-              características que hoje aplico diretamente no desenvolvimento de
+              {" "}
+              Atualmente desenvolvo aplicações utilizando <strong>
+                React
+              </strong>{" "}
+              e <strong>Next.js</strong> com <strong>TypeScript</strong> e{" "}
+              <strong>JavaScript</strong>, criando interfaces responsivas,
+              acessíveis e bem estruturadas. Com cobertura de testes, pipelines
+              de CI/CD e otimização de performance, buscando contruir aplicações
+              escaláveis e fáceis de manter.
+            </p>
+            <p>
+              Antes da transição para tecnologia, construí uma carreira de mais
+              de 10 anos na indústria automotiva, atuando com processos,
+              qualidade e melhoria contínua. Essa experiência desenvolveu uma
+              forte <strong>mentalidade analítica e atenção a detalhes</strong>,
+              habilidades que hoje aplico diretamente no desenvolvimento de
               software, com foco em código limpo, organização de arquitetura e
               performance.
-            </p>
-            <p>
-              Atualmente desenvolvo aplicações utilizando <strong>React</strong>
-              , <strong>TypeScript</strong> e <strong>JavaScript</strong>,
-              criando interfaces responsivas, acessíveis e bem estruturadas. Com
-              cobertura de testes, pipelines de CI/CD e otimização de
-              performance em cada entrega.
             </p>
           </div>
         </div>
