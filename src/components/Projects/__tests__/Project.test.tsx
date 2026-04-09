@@ -20,6 +20,8 @@ describe("Projects component", () => {
 
     const links = screen.getAllByRole("link");
 
-    expect(links).toHaveLength(projectsData.length * 2);
+    expect(links).toHaveLength(projectsData.length * 2 + 1); // Cada projeto tem 2 links + 1 link "Ver mais"
+
+
   });
 });
