@@ -84,6 +84,22 @@
   margin-top: 16px;
 }
 
+.seeMoreContainer {
+  text-align: center;
+}
+
+.seeMoreButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
 @media (min-width: 768px) {
   .projectsContainer {
     display: grid;

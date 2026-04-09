@@ -55,6 +55,16 @@ export default function Projects() {
           ))}
         </div>
       </div>
+      <div className={styles.seeMoreContainer}>
+        <a
+          href="https://www.github.com/felipedev90"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.seeMoreButton}
+        >
+          Ver mais Projetos
+        </a>
+      </div>
     </section>
   );
 }
